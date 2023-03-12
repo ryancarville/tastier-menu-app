@@ -1,6 +1,4 @@
-# New Project
-
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+# Tastier Coding Challenge
 
 ## Available Scripts
 

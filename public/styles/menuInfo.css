@@ -1,0 +1,21 @@
+#menu-info>div {
+  width: 21rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#menu-info-details>h1 {
+  margin-bottom: 0rem;
+}
+
+#menu-info>div>img {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border: 0.1rem black solid;
+  border-radius: 100%;
+}

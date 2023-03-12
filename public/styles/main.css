@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100vw;
+  font-family: Helvetica Neue, Helvetica, Arial !important;
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(245, 245, 245);
+}
+
+header {
+  top: 0;
+  position: sticky;
+}
+
+footer > div {
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+footer > div > img {
+  width: 5rem;
+
+}
+footer > div > ul {
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+
+footer > div > ul > li{
+  cursor: pointer;
+  color: blue;
+}
