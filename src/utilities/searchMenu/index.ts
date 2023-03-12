@@ -1,6 +1,6 @@
 'use-strict';
 import { IMenu } from '../../types/menu';
-import objectSearch from '../common';
+import { objectSearch } from '../common';
 
 /**
  * @description takes in a menu object and filter value then return a new menu object with the matched results

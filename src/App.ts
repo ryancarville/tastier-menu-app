@@ -1,12 +1,17 @@
 'use-strict';
-import menuInfo from './components/molecules/menuInfo';
+import menuInfo from './components/organisms/menuInfo';
 import { menuData, mockMenu } from './data/mockData';
-import getMenu from './components/organisms/menu'
+import createMenu from './components/organisms/menu'
 import { IMenu } from './types/menu'
 import searchMenu from './utilities/searchMenu';
 import { EFoodCategory } from './enums'
 import filterMenu from './utilities/filterMenu'
 import footer from './components/organisms/footer'
+
+/**
+ * @description entry point of the app.  Base HTML and single source state lives here
+ * @returns template string
+ */
 
 const App = function _App(): string {
   return `
@@ -38,11 +43,9 @@ const doc: HTMLElement | null = document.getElementById('app');
 if (!!doc) doc.innerHTML = App();
 
 // get the HTML elements
-const menuInfoEl = document.querySelector<HTMLElement>('#menu-info');
 const menuEl = document.querySelector<HTMLElement>('#menu');
 const searchInputEl = document.querySelector<HTMLInputElement>('#search-input');
 const filterInputEl = document.querySelector<HTMLSelectElement>('#category-select');
-const footerEl = document.querySelector<HTMLElement>('#footer');
 
 // set the app internal state
 App.state = {
@@ -59,16 +62,11 @@ App.state = {
     this.checkResponse(res);
   },
   searchMenu: function(value: string) {
-    const res = searchMenu(value, this.currFilteredMenu);
+    const res: IMenu | string = searchMenu(value, this.currFilteredMenu);
     this.checkResponse(res);
-  },
-  updateMenu: function() {
-    if (!!menuEl) menuEl.innerHTML = getMenu(this.currMenu);
-    window.scrollTo(0,0);
   },
   checkResponse: function(res: IMenu | string) {
     if (this.error.message) this.clearError();
-    if (!!menuEl) menuEl.innerHTML = '';
     if (typeof(res) === 'string') {
       this.error.message = res;
       const errMsgWrapper = `
@@ -79,7 +77,8 @@ App.state = {
       if (!!menuEl) menuEl.innerHTML = errMsgWrapper;
     } else {
       this.currMenu = res;
-      this.updateMenu();
+      createMenu(this.currMenu);
+      window.scrollTo(0, 0);
     }
   },
   clearError: function() {
@@ -122,10 +121,10 @@ options.forEach((cat) => {
 });
 
 // render menu information
-if (!!menuInfoEl) menuInfoEl.innerHTML = menuInfo(App.state.menuData);
+menuInfo(App.state.menuData);
 
 // render the initial menu
-if (!!menuEl) menuEl.innerHTML = getMenu(App.state.menu);
+createMenu(App.state.menu);
 
 // render the footer
-if (!!footerEl) footerEl.innerHTML = footer();
+footer();

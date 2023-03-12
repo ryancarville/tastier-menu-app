@@ -1,7 +1,7 @@
 'use-strict';
 import { EFoodCategory } from '../../enums';
 import { IMenu } from '../../types/menu';
-import objectSearch from '../common';
+import { objectSearch } from '../common';
 
 /**
  * @description takes in a menu object and filter value then return a new menu object with the matched results
@@ -9,6 +9,7 @@ import objectSearch from '../common';
  * @param menu IMenu - should always pass the full menu
  * @returns filtered menu object
  */
+
 const filterMenu = (
   value: EFoodCategory,
   menu: IMenu

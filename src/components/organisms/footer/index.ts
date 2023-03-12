@@ -1,5 +1,10 @@
 'use-strict';
-const footer = (): string => {
+/**
+ * @description create  and render the footer element
+ * @returns void
+ */
+const footer = (): void => {
+  const footerEl = document.querySelector<HTMLElement>('#footer');
   const footerWrapper = `
     <div>
       <ul>
@@ -9,7 +14,8 @@ const footer = (): string => {
       <img src='./logo.png' alt='tastier logo'/>
     </div>
   `;
-  return footerWrapper;
+  if (!!footerEl) footerEl.innerHTML = footerWrapper;
+  return;
 };
 
 export default footer;

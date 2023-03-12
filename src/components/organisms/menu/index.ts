@@ -8,8 +8,10 @@ import menuCard from '../../molecules/menuCard';
  * @returns string
  */
 
-const getMenu = (menuObj: IMenu): string => {
+const createMenu = (menuObj: IMenu): void => {
+  const menuEl = document.querySelector('#menu');
   let menu: string = '';
+
   // get all the key values for the menu
   const menuKeys: string[] = Object.keys(menuObj);
 
@@ -26,7 +28,10 @@ const getMenu = (menuObj: IMenu): string => {
         ${cards}
       </div>`;
   });
-  return menu;
+
+  if (!!menuEl) menuEl.innerHTML = menu;
+
+  return;
 };
 
-export default getMenu;
+export default createMenu;

@@ -1,4 +1,4 @@
-#menu-info>div {
+#menu-info-content {
   width: 21rem;
   margin-top: 2rem;
   margin-left: auto;
@@ -8,14 +8,20 @@
   align-items: flex-start;
 }
 
-#menu-info-details>h1 {
-  margin-bottom: 0rem;
-}
-
-#menu-info>div>img {
+#menu-info-content > img {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
   border: 0.1rem black solid;
   border-radius: 100%;
+}
+
+#menu-info-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#menu-info-details > h1 {
+  margin-bottom: 0rem;
 }

@@ -9,7 +9,7 @@ import { IMenuItem } from '../../types/menu';
  * @returns object
  */
 
-const objectSearch = (
+export const objectSearch = (
   obj: { [index: string]: any },
   searchType: string,
   term: string
@@ -42,5 +42,3 @@ const objectSearch = (
 
   return results;
 };
-
-export default objectSearch;
